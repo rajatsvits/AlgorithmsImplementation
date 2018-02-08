@@ -1,3 +1,10 @@
+int a, b, p=1;
+
+int prefixPalindrome(String s) {
+    return s.chars().map(o -> (a += o*(p*=7)) == 7*(b = b*7 + o) ? 1 : 0).sum();
+}
+
+
 int prefixPalindrome(String s) {
 
     
