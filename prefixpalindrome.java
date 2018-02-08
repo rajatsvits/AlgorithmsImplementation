@@ -4,6 +4,20 @@ int prefixPalindrome(String s) {
     return s.chars().map(o -> (a += o*(p*=7)) == 7*(b = b*7 + o) ? 1 : 0).sum();
 }
 
+int prefixPalindrome(String s) {
+    long mod = 1000000007;
+        long forwardHash = 0, backHash = 0, multiplier = 128;
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            forwardHash = (forwardHash + multiplier*c) % mod;
+            backHash = (backHash * 128 + c * 128) % mod;
+            multiplier = (multiplier*128) % mod;
+            if (forwardHash == backHash) count++;
+        }
+        return count;
+}
+
+
 
 int prefixPalindrome(String s) {
 
